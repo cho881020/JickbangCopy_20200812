@@ -35,7 +35,10 @@ class RoomAdapter(
         descTxt.text = data.description
 
         if (data.price >= 10000) {
+            val hm = data.price / 10000
+            val thousand = data.price % 10000
 
+            priceTxt.text = "${hm}억 ${NumberFormat.getNumberInstance(Locale.KOREA).format(thousand)}"
         }
         else {
             priceTxt.text = NumberFormat.getNumberInstance(Locale.KOREA).format(data.price)
