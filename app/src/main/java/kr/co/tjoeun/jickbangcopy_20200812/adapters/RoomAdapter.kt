@@ -35,15 +35,7 @@ class RoomAdapter(
 
         descTxt.text = data.description
 
-        if (data.price >= 10000) {
-            val hm = data.price / 10000
-            val thousand = data.price % 10000
-
-            priceTxt.text = "${hm}억 ${NumberFormat.getNumberInstance(Locale.KOREA).format(thousand)}"
-        }
-        else {
-            priceTxt.text = NumberFormat.getNumberInstance(Locale.KOREA).format(data.price)
-        }
+        priceTxt.text = data.getFormattedPrice()
 
 //        층수 >= 1 : 2층, 5층 등
 //        층수 == 0 : 반지하
