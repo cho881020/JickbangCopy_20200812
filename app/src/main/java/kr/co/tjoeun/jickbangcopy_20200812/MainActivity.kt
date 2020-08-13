@@ -1,5 +1,6 @@
 package kr.co.tjoeun.jickbangcopy_20200812
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +23,16 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
 
 //        메인 화면의 이벤트 관련 코드 모아둘 장소
+
+        roomListView.setOnItemClickListener { adapterView, view, i, l ->
+
+            val clickedRoom = mRoomList[i]
+
+            val myIntent = Intent(mContext, ViewRoomDetailActivity::class.java)
+            myIntent.putExtra("roomInfo", clickedRoom)
+            startActivity(myIntent)
+
+        }
 
     }
 
