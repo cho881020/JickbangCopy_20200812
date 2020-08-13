@@ -34,27 +34,8 @@ class RoomAdapter(
         val data = mList[position]
 
         descTxt.text = data.description
-
         priceTxt.text = data.getFormattedPrice()
-
-//        층수 >= 1 : 2층, 5층 등
-//        층수 == 0 : 반지하
-//        그외 : 지하 2층, 지하 1층 등.
-
-        val floorStr : String
-
-        if (data.floor >= 1) {
-            floorStr = "${data.floor}층"
-        }
-        else if (data.floor == 0) {
-            floorStr = "반지하"
-        }
-        else {
-            floorStr = "지하 ${-data.floor}층"
-        }
-        
-
-        addressAndFloorTxt.text = "${data.address}, ${floorStr}"
+        addressAndFloorTxt.text = "${data.address}, ${data.getFormattedFloor()}"
 
         return row
     }

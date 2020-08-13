@@ -10,6 +10,22 @@ class Room(
     val description: String
 ) : Serializable {
 
+    fun getFormattedFloor() : String {
+        val floorStr : String
+
+        if (this.floor >= 1) {
+            floorStr = "${this.floor}층"
+        }
+        else if (this.floor < 0) {
+            floorStr = "지하 ${-this.floor}층"
+        }
+        else {
+            floorStr = "반지하"
+        }
+
+        return floorStr
+    }
+
     fun getFormattedPrice() : String {
 
         if (this.price >= 10000) {
